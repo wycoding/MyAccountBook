@@ -1,4 +1,4 @@
-package pers.wang.accountbook;
+package pers.wang.accountbook.activitiy;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,66 +6,66 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import pers.wang.accountbook.Utils.FingerprintUtil;
+import pers.wang.accountbook.Utils.KeyguardLockScreenManager;
+import pers.wang.accountbook.R;
+import pers.wang.accountbook.applicant.MyApplicant;
 import pers.wang.accountbook.fingerprint.FingerprintCore;
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class UnlockedActivity extends Activity implements View.OnClickListener {
 
     private FingerprintCore mFingerprintCore;
     private KeyguardLockScreenManager mKeyguardLockScreenManager;
 
+    private MyApplicant applicant;
     private Toast mToast;
     private Handler mHandler = new Handler(Looper.getMainLooper());
 
-    private ImageView mFingerGuideImg;
-    private TextView mFingerGuideTxt;
+//    private ImageView mFingerGuideImg;
+//    private TextView mFingerGuideTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initViews();
-        initViewListeners();
-        initFingerprintCore();
+        applicant = (MyApplicant) getApplication();
+        setContentView(R.layout.activity_unlocked);
+        if (applicant.isFingerPrintLock()) {
+            initViews();
+            initViewListeners();
+            initFingerprintCore();
+        }else {
+            Intent i = new Intent(UnlockedActivity.this, HomeActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
 
     private void initFingerprintCore() {
         mFingerprintCore = new FingerprintCore(this);
         mFingerprintCore.setFingerprintManager(mResultListener);
         mKeyguardLockScreenManager = new KeyguardLockScreenManager(this);
+        startFingerprintRecognition();
     }
 
     private void initViews() {
-        mFingerGuideImg = (ImageView) findViewById(R.id.fingerprint_guide);
-        mFingerGuideTxt = (TextView) findViewById(R.id.fingerprint_guide_tip);
+//        mFingerGuideImg = (ImageView) findViewById(R.id.fingerprint_guide);
+//        mFingerGuideTxt = (TextView) findViewById(R.id.fingerprint_guide_tip);
     }
 
     private void initViewListeners() {
-        findViewById(R.id.fingerprint_recognition_start).setOnClickListener(this);
-        findViewById(R.id.fingerprint_recognition_cancel).setOnClickListener(this);
-        findViewById(R.id.fingerprint_recognition_sys_unlock).setOnClickListener(this);
-        findViewById(R.id.fingerprint_recognition_sys_setting).setOnClickListener(this);
+//        findViewById(R.id.fingerprint_recognition_start).setOnClickListener(this);
+//        findViewById(R.id.fingerprint_recognition_cancel).setOnClickListener(this);
+//        findViewById(R.id.fingerprint_recognition_sys_unlock).setOnClickListener(this);
+//        findViewById(R.id.fingerprint_recognition_sys_setting).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         final int viewId = v.getId();
         switch (viewId) {
-            case R.id.fingerprint_recognition_start:
-                startFingerprintRecognition();
-                break;
-            case R.id.fingerprint_recognition_cancel:
-                cancelFingerprintRecognition();
-                break;
-            case R.id.fingerprint_recognition_sys_unlock:
-                startFingerprintRecognitionUnlockScreen();
-                break;
-            case R.id.fingerprint_recognition_sys_setting:
-                enterSysFingerprintSettingPage();
-                break;
+
         }
     }
 
@@ -76,7 +76,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void cancelFingerprintRecognition() {
         if (mFingerprintCore.isAuthenticating()) {
             mFingerprintCore.cancelAuthenticate();
-            resetGuideViewState();
         }
     }
 
@@ -103,8 +102,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 return;
             }
             toastTipMsg(R.string.fingerprint_recognition_tip);
-            mFingerGuideTxt.setText(R.string.fingerprint_recognition_tip);
-            mFingerGuideImg.setBackgroundResource(R.drawable.fingerprint_guide);
+//            mFingerGuideTxt.setText(R.string.fingerprint_recognition_tip);
+//            mFingerGuideImg.setBackgroundResource(R.drawable.fingerprint_guide);
             if (mFingerprintCore.isAuthenticating()) {
                 toastTipMsg(R.string.fingerprint_recognition_authenticating);
             } else {
@@ -112,31 +111,27 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         } else {
             toastTipMsg(R.string.fingerprint_recognition_not_support);
-            mFingerGuideTxt.setText(R.string.fingerprint_recognition_tip);
+            //mFingerGuideTxt.setText(R.string.fingerprint_recognition_tip);
         }
-    }
-
-    private void resetGuideViewState() {
-        mFingerGuideTxt.setText(R.string.fingerprint_recognition_guide_tip);
-        mFingerGuideImg.setBackgroundResource(R.drawable.fingerprint_normal);
     }
 
     private FingerprintCore.IFingerprintResultListener mResultListener = new FingerprintCore.IFingerprintResultListener() {
         @Override
         public void onAuthenticateSuccess() {
             toastTipMsg(R.string.fingerprint_recognition_success);
-            resetGuideViewState();
+            Intent i = new Intent(UnlockedActivity.this, HomeActivity.class);
+            startActivity(i);
+            finish();
         }
 
         @Override
         public void onAuthenticateFailed(int helpId) {
             toastTipMsg(R.string.fingerprint_recognition_failed);
-            mFingerGuideTxt.setText(R.string.fingerprint_recognition_failed);
+            //mFingerGuideTxt.setText(R.string.fingerprint_recognition_failed);
         }
 
         @Override
         public void onAuthenticateError(int errMsgId) {
-            resetGuideViewState();
             toastTipMsg(R.string.fingerprint_recognition_error);
         }
 
