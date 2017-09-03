@@ -1,2 +1,2 @@
 # MyAccountBook
-an account book for myself
+随便写点东西练练android
