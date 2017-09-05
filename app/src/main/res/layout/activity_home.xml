@@ -23,6 +23,7 @@
             android:textSize="24sp" />
 
         <ImageView
+            android:id="@+id/iv_home_account"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignRight="@id/tv_home_name"
@@ -44,28 +45,31 @@
             android:src="@drawable/rmb" />
 
         <EditText
-            android:textAlignment="center"
-            android:text="100"
-            android:textColor="#089c29"
-            android:background="@drawable/edit_shape"
-            android:textSize="48sp"
+            android:focusableInTouchMode="true"
             android:id="@+id/et_home_num"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginBottom="24dp"
             android:layout_marginLeft="48dp"
             android:layout_marginRight="48dp"
-            android:layout_marginTop="24dp" />
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_shape"
+            android:singleLine="true"
+            android:text="100"
+            android:textAlignment="center"
+            android:textColor="#089c29"
+            android:textSize="48sp" />
     </RelativeLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager_home_categroy"
-        android:layout_below="@id/layout_home_num"
         android:layout_width="match_parent"
-        android:layout_height="180dp">
-    </android.support.v4.view.ViewPager>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layout_home_calc"
+        android:layout_below="@id/layout_home_num"></android.support.v4.view.ViewPager>
 
     <LinearLayout
+        android:id="@+id/layout_home_calc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -192,7 +196,7 @@
                     android:textSize="48sp">
 
                     <Button
-                        android:id="@+id/point"
+                        android:id="@+id/confirm"
                         android:layout_width="match_parent"
                         android:layout_height="84dp"
                         android:layout_weight="1"
@@ -209,7 +213,7 @@
                         android:textSize="48sp" />
 
                     <Button
-                        android:id="@+id/add"
+                        android:id="@+id/delete"
                         android:layout_width="match_parent"
                         android:layout_height="84dp"
                         android:layout_weight="1"
