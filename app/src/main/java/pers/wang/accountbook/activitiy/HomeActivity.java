@@ -138,7 +138,9 @@ public class HomeActivity extends Activity implements View.OnClickListener {
             case R.id.confirm:
                 break;
             case R.id.delete:
+                if(et_home_num.getText().toString()!=null){
                 et_home_num.setText(et_home_num.getText().toString().substring(0, et_home_num.getText().toString().length()-1));
+                }
                 break;
         }
     }
