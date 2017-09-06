@@ -108,6 +108,13 @@ public class HomeActivity extends Activity implements View.OnClickListener {
         num0.setOnClickListener(this);
         delete = (Button) findViewById(R.id.delete);
         delete.setOnClickListener(this);
+        delete.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                et_home_num.setText("");
+                return true;
+            }
+        });
         layout_home_calc = (LinearLayout) findViewById(R.id.layout_home_calc);
         layout_home_calc.setOnClickListener(this);
     }
@@ -131,6 +138,7 @@ public class HomeActivity extends Activity implements View.OnClickListener {
             case R.id.confirm:
                 break;
             case R.id.delete:
+                et_home_num.setText(et_home_num.getText().toString().substring(0, et_home_num.getText().toString().length()-1));
                 break;
         }
     }
