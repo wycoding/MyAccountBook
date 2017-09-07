@@ -23,7 +23,7 @@
             android:textSize="24sp" />
 
         <ImageView
-            android:id="@+id/iv_home_account"
+            android:id="@+id/iv_home_menu"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignRight="@id/tv_home_name"
@@ -35,7 +35,8 @@
         android:id="@+id/layout_home_num"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_home_title">
+        android:layout_below="@+id/layout_home_title"
+        android:layout_alignParentStart="true">
 
         <ImageView
             android:layout_width="24dp"
@@ -55,7 +56,6 @@
             android:layout_marginTop="24dp"
             android:background="@drawable/edit_shape"
             android:singleLine="true"
-            android:text="100"
             android:textAlignment="center"
             android:textColor="#089c29"
             android:textSize="48sp" />

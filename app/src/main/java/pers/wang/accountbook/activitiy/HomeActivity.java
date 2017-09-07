@@ -1,19 +1,20 @@
 package pers.wang.accountbook.activitiy;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.text.InputType;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class HomeActivity extends Activity implements View.OnClickListener {
     private List<View> pagelist;
     private HomePagerAdapter homePagerAdapter;
     private TextView tv_home_name;
-    private ImageView iv_home_account;
+    private ImageView iv_home_menu;
     private RelativeLayout layout_home_title;
     private EditText et_home_num;
     private RelativeLayout layout_home_num;
@@ -47,6 +48,7 @@ public class HomeActivity extends Activity implements View.OnClickListener {
     private Button num0;
     private Button delete;
     private LinearLayout layout_home_calc;
+    private ImageButton btn1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,8 @@ public class HomeActivity extends Activity implements View.OnClickListener {
         LayoutInflater inflater = getLayoutInflater();
         page1 = inflater.inflate(R.layout.page1, null);
         page2 = inflater.inflate(R.layout.page2, null);
+        btn1 = (ImageButton) page1.findViewById(R.id.btn1);
+        btn1.setOnClickListener(this);
         pagelist = new ArrayList<View>();
         pagelist.add(page1);
         pagelist.add(page2);
@@ -74,8 +78,8 @@ public class HomeActivity extends Activity implements View.OnClickListener {
 
         tv_home_name = (TextView) findViewById(R.id.tv_home_name);
         tv_home_name.setOnClickListener(this);
-        iv_home_account = (ImageView) findViewById(R.id.iv_home_account);
-        iv_home_account.setOnClickListener(this);
+        iv_home_menu = (ImageView) findViewById(R.id.iv_home_menu);
+        iv_home_menu.setOnClickListener(this);
         layout_home_title = (RelativeLayout) findViewById(R.id.layout_home_title);
         layout_home_title.setOnClickListener(this);
         et_home_num = (EditText) findViewById(R.id.et_home_num);
@@ -117,6 +121,8 @@ public class HomeActivity extends Activity implements View.OnClickListener {
         });
         layout_home_calc = (LinearLayout) findViewById(R.id.layout_home_calc);
         layout_home_calc.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -133,26 +139,22 @@ public class HomeActivity extends Activity implements View.OnClickListener {
             case R.id.num8:
             case R.id.num9:
             case R.id.num0:
-                et_home_num.setText(str+((Button)v).getText().toString());
+                et_home_num.setText(str + ((Button) v).getText().toString());
                 et_home_num.setSelection(et_home_num.getText().length());
             case R.id.confirm:
                 break;
             case R.id.delete:
-                if(et_home_num.getText().toString().length()>0){
-                et_home_num.setText(et_home_num.getText().toString().substring(0, et_home_num.getText().toString().length()-1));
+                if (et_home_num.getText().toString().length() > 0) {
+                    et_home_num.setText(et_home_num.getText().toString().substring(0, et_home_num.getText().toString().length() - 1));
                 }
                 break;
+            case R.id.iv_home_menu:
+                Intent i = new Intent(HomeActivity.this, ListActivity.class);
+                startActivity(i);
+                break;
+            case R.id.btn1:
+                btn1.setBackgroundColor(Color.CYAN);
+                break;
         }
-    }
-
-    private void submit() {
-        // validate
-        String num = et_home_num.getText().toString().trim();
-        if (TextUtils.isEmpty(num)) {
-            Toast.makeText(this, "num不能为空", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        // TODO validate success, do something
-
     }
 }

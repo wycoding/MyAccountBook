@@ -14,17 +14,19 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
-                    android:background="@drawable/button_selector"
+                <ImageButton
+                    android:id="@+id/btn1"
                     android:layout_width="wrap_content"
-                    android:layout_height="84dp" />
+                    android:layout_height="84dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/movie" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
 
-                    android:text="看电影"
+                    android:text="movie"
                     android:textAlignment="center"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -33,8 +35,10 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
-                    android:background="@drawable/button_selector"
+                <ImageButton
+                    android:src="@drawable/shopping"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/btn2"
                     android:layout_width="wrap_content"
                     android:layout_height="84dp" />
 
@@ -43,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
 
-                    android:text="看电影"
+                    android:text="shopping"
                     android:textAlignment="center"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -52,8 +56,9 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
-                    android:background="@drawable/button_selector"
+                <ImageButton
+                    android:src="@drawable/dinner"
+                    android:scaleType="fitCenter"
                     android:layout_width="wrap_content"
                     android:layout_height="84dp" />
 
@@ -62,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
 
-                    android:text="看电影"
+                    android:text="food"
                     android:textAlignment="center"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -71,7 +76,9 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
+                <ImageButton
+                    android:src="@drawable/phone"
+                    android:scaleType="fitCenter"
                     android:layout_width="wrap_content"
                     android:layout_height="84dp" />
 
@@ -80,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
 
-                    android:text="看电影"
+                    android:text="phone"
                     android:textAlignment="center"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -89,7 +96,9 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
+                <ImageButton
+                    android:src="@drawable/haircut"
+                    android:scaleType="fitCenter"
                     android:layout_width="wrap_content"
                     android:layout_height="84dp" />
 
@@ -98,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
 
-                    android:text="看电影"
+                    android:text="haircut"
                     android:textAlignment="center"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -110,7 +119,9 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
+                <ImageButton
+                    android:src="@drawable/hospital"
+                    android:scaleType="fitCenter"
                     android:layout_width="wrap_content"
                     android:layout_height="84dp" />
 
@@ -119,7 +130,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
 
-                    android:text="看电影"
+                    android:text="hospital"
                     android:textAlignment="center"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -128,7 +139,9 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
+                <ImageButton
+                    android:src="@drawable/clothes"
+                    android:scaleType="fitCenter"
                     android:layout_width="wrap_content"
                     android:layout_height="84dp" />
 
@@ -137,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
 
-                    android:text="看电影"
+                    android:text="clothes"
                     android:textAlignment="center"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -146,7 +159,9 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
+                <ImageButton
+                    android:src="@drawable/subway"
+                    android:scaleType="fitCenter"
                     android:layout_width="wrap_content"
                     android:layout_height="84dp" />
 
@@ -155,7 +170,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
 
-                    android:text="看电影"
+                    android:text="subway"
                     android:textAlignment="center"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -164,7 +179,9 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
+                <ImageButton
+                    android:src="@drawable/cosmetics"
+                    android:scaleType="fitCenter"
                     android:layout_width="wrap_content"
                     android:layout_height="84dp" />
 
@@ -173,7 +190,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
 
-                    android:text="看电影"
+                    android:text="cosmetics"
                     android:textAlignment="center"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -182,7 +199,9 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
+                <ImageButton
+                    android:src="@drawable/shoes"
+                    android:scaleType="fitCenter"
                     android:layout_width="wrap_content"
                     android:layout_height="84dp" />
 
@@ -191,7 +210,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
 
-                    android:text="看电影"
+                    android:text="shoes"
                     android:textAlignment="center"
                     android:textSize="16sp" />
             </LinearLayout>

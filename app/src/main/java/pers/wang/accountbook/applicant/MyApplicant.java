@@ -7,7 +7,12 @@ import android.app.Application;
  */
 
 public class MyApplicant extends Application{
-    private boolean fingerPrintLock = false;
+    private static boolean fingerPrintLock;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
 
     public boolean isFingerPrintLock() {
         return fingerPrintLock;
