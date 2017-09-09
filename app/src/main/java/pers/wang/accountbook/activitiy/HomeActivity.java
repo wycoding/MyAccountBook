@@ -16,11 +16,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.xmlpull.v1.XmlPullParser;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import pers.wang.accountbook.R;
 import pers.wang.accountbook.adapter.HomePagerAdapter;
+import pers.wang.accountbook.widget.CustomToolBar;
 
 public class HomeActivity extends Activity implements View.OnClickListener {
 
@@ -29,10 +32,12 @@ public class HomeActivity extends Activity implements View.OnClickListener {
     private View page1, page2;
     private List<View> pagelist;
     private HomePagerAdapter homePagerAdapter;
-    private TextView tv_home_name;
-    private ImageView iv_home_menu;
-    private ImageView iv_home_setting;
-    private RelativeLayout layout_home_title;
+    //private TextView tv_home_name;
+    //private ImageView iv_home_menu;
+    //private ImageView iv_home_setting;
+    //private RelativeLayout layout_home_title;
+    private LinearLayout toolbar;
+    private Button left_btn;
     private EditText et_home_num;
     private RelativeLayout layout_home_num;
     private ViewPager viewpager_home_categroy;
@@ -50,6 +55,7 @@ public class HomeActivity extends Activity implements View.OnClickListener {
     private Button delete;
     private LinearLayout layout_home_calc;
     private ImageButton btn1;
+    private CustomToolBar toolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,11 +69,23 @@ public class HomeActivity extends Activity implements View.OnClickListener {
         LayoutInflater inflater = getLayoutInflater();
         page1 = inflater.inflate(R.layout.page1, null);
         page2 = inflater.inflate(R.layout.page2, null);
+        toolbar = (LinearLayout) inflater.inflate(R.layout.common_toolbar,null);
+        left_btn = toolbar.findViewById(R.id.toolbar_left_btn);
+        left_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(HomeActivity.this, ListActivity.class);
+                startActivity(i);
+            }
+        });
+
+
         btn1 = (ImageButton) page1.findViewById(R.id.btn1);
         btn1.setOnClickListener(this);
         pagelist = new ArrayList<View>();
         pagelist.add(page1);
         pagelist.add(page2);
+
 
         homePagerAdapter = new HomePagerAdapter(pagelist);
         viewpager_home_categroy.setAdapter(homePagerAdapter);
@@ -77,14 +95,14 @@ public class HomeActivity extends Activity implements View.OnClickListener {
     private void initView() {
         viewpager_home_categroy = (ViewPager) findViewById(R.id.viewpager_home_categroy);
 
-        tv_home_name = (TextView) findViewById(R.id.tv_home_name);
-        tv_home_name.setOnClickListener(this);
-        iv_home_menu = (ImageView) findViewById(R.id.iv_home_menu);
-        iv_home_menu.setOnClickListener(this);
-        iv_home_setting = (ImageView) findViewById(R.id.iv_home_setting);
-        iv_home_setting.setOnClickListener(this);
-        layout_home_title = (RelativeLayout) findViewById(R.id.layout_home_title);
-        layout_home_title.setOnClickListener(this);
+//        tv_home_name = (TextView) findViewById(R.id.tv_home_name);
+//        tv_home_name.setOnClickListener(this);
+//        iv_home_menu = (ImageView) findViewById(R.id.iv_home_menu);
+//        iv_home_menu.setOnClickListener(this);
+//        iv_home_setting = (ImageView) findViewById(R.id.iv_home_setting);
+//        iv_home_setting.setOnClickListener(this);
+//        layout_home_title = (RelativeLayout) findViewById(R.id.layout_home_title);
+//        layout_home_title.setOnClickListener(this);
         et_home_num = (EditText) findViewById(R.id.et_home_num);
         et_home_num.setOnClickListener(this);
         layout_home_num = (RelativeLayout) findViewById(R.id.layout_home_num);
@@ -150,10 +168,6 @@ public class HomeActivity extends Activity implements View.OnClickListener {
                 if (et_home_num.getText().toString().length() > 0) {
                     et_home_num.setText(et_home_num.getText().toString().substring(0, et_home_num.getText().toString().length() - 1));
                 }
-                break;
-            case R.id.iv_home_setting:
-                Intent i = new Intent(HomeActivity.this, ListActivity.class);
-                startActivity(i);
                 break;
             case R.id.btn1:
                 btn1.setBackgroundColor(Color.CYAN);

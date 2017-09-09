@@ -7,17 +7,17 @@
         <attr name="left_btn_src" format="reference|color" />
         <!--左边文本-->
         <attr name="left_tv_visible" format="boolean" />
-        <attr name="left_tv_src" format="string" />
+        <attr name="left_tv_text" format="string" />
         <!--右边按钮-->
         <attr name="right_btn_visible" format="boolean" />
         <attr name="right_btn_src" format="reference|color" />
         <!--右边文本-->
         <attr name="right_tv_visible" format="boolean" />
-        <attr name="right_tv_src" format="string" />
+        <attr name="right_tv_text" format="string" />
 
         <attr name="title_visible" format="boolean" />
         <attr name="title_text" format="string" />
         
-        <attr name="bar_background" format="reference|color" />
+        <attr name="barBackground" format="reference|color" />
     </declare-styleable>
 </resources>

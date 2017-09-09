@@ -8,49 +8,50 @@
     tools:context="pers.wang.accountbook.activitiy.HomeActivity">
 
     <pers.wang.accountbook.widget.CustomToolBar
+        android:id="@+id/toolbar_title"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        wang:bar_background="@color/bg_toolbar"
+        wang:barBackground="@color/bg_toolbar"
+        wang:left_btn_visible="true"
+        wang:left_btn_src="@drawable/settings"
         wang:title_text="account book"
         wang:title_visible="true"
-        >
+        />
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/layout_home_title"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="48dp">-->
 
-    </pers.wang.accountbook.widget.CustomToolBar>
-    <RelativeLayout
-        android:id="@+id/layout_home_title"
-        android:layout_width="match_parent"
-        android:layout_height="48dp">
-
-        <TextView
-            android:id="@+id/tv_home_name"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#E8E8E8"
-            android:gravity="center"
-            android:text="Account Book"
-            android:textColor="#000"
-            android:textSize="24sp" />
-        <ImageView
-            android:id="@+id/iv_home_setting"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignLeft="@id/tv_home_name"
-            android:layout_margin="12dp"
-            android:src="@drawable/settings" />
-        <ImageView
-            android:id="@+id/iv_home_menu"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignRight="@id/tv_home_name"
-            android:layout_margin="12dp"
-            android:src="@drawable/btn_list" />
-    </RelativeLayout>
+        <!--<TextView-->
+            <!--android:id="@+id/tv_home_name"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#E8E8E8"-->
+            <!--android:gravity="center"-->
+            <!--android:text="Account Book"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="24sp" />-->
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_home_setting"-->
+            <!--android:layout_width="24dp"-->
+            <!--android:layout_height="24dp"-->
+            <!--android:layout_alignLeft="@id/tv_home_name"-->
+            <!--android:layout_margin="12dp"-->
+            <!--android:src="@drawable/settings" />-->
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_home_menu"-->
+            <!--android:layout_width="24dp"-->
+            <!--android:layout_height="24dp"-->
+            <!--android:layout_alignRight="@id/tv_home_name"-->
+            <!--android:layout_margin="12dp"-->
+            <!--android:src="@drawable/btn_list" />-->
+    <!--</RelativeLayout>-->
 
     <RelativeLayout
         android:id="@+id/layout_home_num"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_home_title"
+        android:layout_below="@+id/toolbar_title"
         android:layout_alignParentStart="true">
 
         <ImageView
