@@ -1,5 +1,6 @@
 package pers.wang.accountbook.activitiy;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 import pers.wang.accountbook.R;
 import pers.wang.accountbook.applicant.MyApplicant;
 
-public class ListActivity extends AppCompatActivity {
+public class ListActivity extends Activity {
 
     private Switch switch_locked;
     MyApplicant applicant;

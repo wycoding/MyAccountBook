@@ -31,6 +31,7 @@ public class HomeActivity extends Activity implements View.OnClickListener {
     private HomePagerAdapter homePagerAdapter;
     private TextView tv_home_name;
     private ImageView iv_home_menu;
+    private ImageView iv_home_setting;
     private RelativeLayout layout_home_title;
     private EditText et_home_num;
     private RelativeLayout layout_home_num;
@@ -80,6 +81,8 @@ public class HomeActivity extends Activity implements View.OnClickListener {
         tv_home_name.setOnClickListener(this);
         iv_home_menu = (ImageView) findViewById(R.id.iv_home_menu);
         iv_home_menu.setOnClickListener(this);
+        iv_home_setting = (ImageView) findViewById(R.id.iv_home_setting);
+        iv_home_setting.setOnClickListener(this);
         layout_home_title = (RelativeLayout) findViewById(R.id.layout_home_title);
         layout_home_title.setOnClickListener(this);
         et_home_num = (EditText) findViewById(R.id.et_home_num);
@@ -148,7 +151,7 @@ public class HomeActivity extends Activity implements View.OnClickListener {
                     et_home_num.setText(et_home_num.getText().toString().substring(0, et_home_num.getText().toString().length() - 1));
                 }
                 break;
-            case R.id.iv_home_menu:
+            case R.id.iv_home_setting:
                 Intent i = new Intent(HomeActivity.this, ListActivity.class);
                 startActivity(i);
                 break;

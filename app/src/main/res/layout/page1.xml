@@ -97,7 +97,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:src="@drawable/haircut"
+                    android:src="@drawable/iocn_haircut"
                     android:scaleType="fitCenter"
                     android:layout_width="wrap_content"
                     android:layout_height="84dp" />

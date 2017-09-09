@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:wang="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="pers.wang.accountbook.activitiy.HomeActivity">
 
+    <pers.wang.accountbook.widget.CustomToolBar
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        wang:bar_background="@color/bg_toolbar"
+        wang:title_text="account book"
+        wang:title_visible="true"
+        >
+
+    </pers.wang.accountbook.widget.CustomToolBar>
     <RelativeLayout
         android:id="@+id/layout_home_title"
         android:layout_width="match_parent"
@@ -17,11 +27,16 @@
             android:layout_height="match_parent"
             android:background="#E8E8E8"
             android:gravity="center"
-            android:src="@drawable/btn_list"
             android:text="Account Book"
             android:textColor="#000"
             android:textSize="24sp" />
-
+        <ImageView
+            android:id="@+id/iv_home_setting"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignLeft="@id/tv_home_name"
+            android:layout_margin="12dp"
+            android:src="@drawable/settings" />
         <ImageView
             android:id="@+id/iv_home_menu"
             android:layout_width="24dp"
